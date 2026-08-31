@@ -28,12 +28,11 @@
     },
     "productivity_security": {
       "name": "Productivity & Security",
-      "description": "Password management, notes, and communications",
+      "description": "Password management, notes, and cloud storage",
       "packages": [
         { "id": "DominikReichl.KeePass", "name": "KeePass Password Safe", "enabled": true },
+        { "id": "Google.GoogleDrive", "name": "Google Drive", "enabled": true },
         { "id": "Microsoft.OneDrive", "name": "Microsoft OneDrive", "enabled": true },
-        { "id": "Microsoft.Teams", "name": "Microsoft Teams", "enabled": true },
-        { "id": "Microsoft.Outlook", "name": "Microsoft Outlook", "enabled": true },
         { "id": "Obsidian.Obsidian", "name": "Obsidian Note Taking", "enabled": false },
         { "id": "Discord.Discord", "name": "Discord", "enabled": false }
       ]

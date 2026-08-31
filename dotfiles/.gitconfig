@@ -1,0 +1,25 @@
+[core]
+    autocrlf = true
+    editor = code --wait
+    longpaths = true
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[color]
+    ui = auto
+
+[diff]
+    colorMoved = default
+
+[merge]
+    conflictstyle = diff3

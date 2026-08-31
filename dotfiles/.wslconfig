@@ -1,0 +1,6 @@
+[wsl2]
+memory=32GB
+processors=8
+localhostForwarding=true
+autoMemoryReclaim=gradual
+nestedVirtualization=true

@@ -1,0 +1,20 @@
+# Backups & Temp files
+.dotfiles_backup/
+*.log
+winget-current.json
+
+# Secrets & Credentials
+*.pem
+*.key
+*.pfx
+id_rsa
+id_ed25519
+id_ecdsa
+.env
+.env.local
+credentials.json
+
+# OS Metadata
+desktop.ini
+Thumbs.db
+$RECYCLE.BIN/

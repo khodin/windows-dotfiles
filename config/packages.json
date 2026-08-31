@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/winget-cli/master/schemas/JSON/packages/packages.schema.json",
+  "description": "Curated list of Windows applications and CLI tools categorized by use-case.",
+  "categories": {
+    "core_tools": {
+      "name": "Core System & CLI Utilities",
+      "description": "Essential command-line tools and system enhancements",
+      "packages": [
+        { "id": "Git.Git", "name": "Git for Windows", "enabled": true },
+        { "id": "GitHub.cli", "name": "GitHub CLI (gh)", "enabled": true },
+        { "id": "Microsoft.PowerShell", "name": "PowerShell 7 (pwsh)", "enabled": true },
+        { "id": "7zip.7zip", "name": "7-Zip Archive Manager", "enabled": true },
+        { "id": "Microsoft.PowerToys", "name": "Microsoft PowerToys", "enabled": true },
+        { "id": "Microsoft.WindowsTerminal", "name": "Windows Terminal", "enabled": true },
+        { "id": "Starship.Starship", "name": "Starship Cross-Shell Prompt", "enabled": true }
+      ]
+    },
+    "development": {
+      "name": "Development & Runtimes",
+      "description": "Programming languages, IDEs, and developer tools",
+      "packages": [
+        { "id": "Microsoft.VisualStudioCode", "name": "Visual Studio Code", "enabled": true },
+        { "id": "Microsoft.WSL", "name": "Windows Subsystem for Linux (WSL2)", "enabled": true },
+        { "id": "Python.Python.3.12", "name": "Python 3.12", "enabled": true },
+        { "id": "OpenJS.NodeJS.LTS", "name": "Node.js (LTS)", "enabled": true },
+        { "id": "Docker.DockerDesktop", "name": "Docker Desktop", "enabled": false }
+      ]
+    },
+    "productivity_security": {
+      "name": "Productivity & Security",
+      "description": "Password management, notes, and communications",
+      "packages": [
+        { "id": "DominikReichl.KeePass", "name": "KeePass Password Safe", "enabled": true },
+        { "id": "Microsoft.OneDrive", "name": "Microsoft OneDrive", "enabled": true },
+        { "id": "Microsoft.Teams", "name": "Microsoft Teams", "enabled": true },
+        { "id": "Microsoft.Outlook", "name": "Microsoft Outlook", "enabled": true },
+        { "id": "Obsidian.Obsidian", "name": "Obsidian Note Taking", "enabled": false },
+        { "id": "Discord.Discord", "name": "Discord", "enabled": false }
+      ]
+    },
+    "audio_multimedia": {
+      "name": "Audio & Multimedia",
+      "description": "DAWs, media players, and creative software",
+      "packages": [
+        { "id": "Cockos.REAPER", "name": "REAPER DAW (x64)", "enabled": true },
+        { "id": "VideoLAN.VLC", "name": "VLC Media Player", "enabled": true },
+        { "id": "Audacity.Audacity", "name": "Audacity Audio Editor", "enabled": false },
+        { "id": "OBSProject.OBSStudio", "name": "OBS Studio", "enabled": false },
+        { "id": "Spotify.Spotify", "name": "Spotify", "enabled": false }
+      ]
+    },
+    "browsers": {
+      "name": "Web Browsers",
+      "description": "Modern browsers",
+      "packages": [
+        { "id": "Google.Chrome", "name": "Google Chrome", "enabled": true },
+        { "id": "Mozilla.Firefox", "name": "Mozilla Firefox", "enabled": false },
+        { "id": "Brave.Brave", "name": "Brave Browser", "enabled": false }
+      ]
+    }
+  }
+}

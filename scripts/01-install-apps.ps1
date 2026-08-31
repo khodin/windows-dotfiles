@@ -72,7 +72,7 @@ foreach ($catKey in $selectedKeys) {
     }
 
     $category = $config.categories.$catKey
-    Write-Host "`n>>> Processing Category: $($category.name) <<<'n" -ForegroundColor Cyan
+    Write-Host "`n>>> Processing Category: $($category.name) <<<" -ForegroundColor Cyan
 
     foreach ($pkg in $category.packages) {
         if ($pkg.enabled -ne $true) {
@@ -80,9 +80,21 @@ foreach ($catKey in $selectedKeys) {
             continue
         }
 
-        Write-Host "[*] Checking: $($pkg.name) ($($pkg.id))..." -NoNewline
+        Write-Host "[*] Checking: $($pkg.name)..." -NoNewline
 
-        # Check if already installed
+        # Check for manual download packages (e.g. DaVinci Resolve)
+        if ($pkg.type -eq "manual_download") {
+            if ($pkg.checkPath -and (Test-Path $pkg.checkPath)) {
+                Write-Host " [ALREADY INSTALLED]" -ForegroundColor Green
+                $skippedList += $pkg.name
+            } else {
+                Write-Host " [MANUAL DOWNLOAD]" -ForegroundColor Yellow
+                Write-Host "  -> Please download & run installer from: $($pkg.url)" -ForegroundColor Cyan
+            }
+            continue
+        }
+
+        # Check if already installed via Winget
         $check = winget list --id "$($pkg.id)" --exact --accept-source-agreements 2>$null
         if ($LASTEXITCODE -eq 0 -and $check -match [regex]::Escape($pkg.id)) {
             Write-Host " [ALREADY INSTALLED]" -ForegroundColor Green

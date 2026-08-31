@@ -38,15 +38,49 @@
         { "id": "Discord.Discord", "name": "Discord", "enabled": false }
       ]
     },
-    "audio_multimedia": {
-      "name": "Audio & Multimedia",
-      "description": "DAWs, media players, and creative software",
+    "creative_apps": {
+      "name": "Creative & Audio/Video Production",
+      "description": "DAWs, video editing, image editors, and audio hardware drivers",
       "packages": [
+        {
+          "name": "DaVinci Resolve",
+          "id": "manual.davinci-resolve",
+          "type": "manual_download",
+          "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+          "checkPath": "C:\\Program Files\\Blackmagic Design\\DaVinci Resolve\\Resolve.exe",
+          "enabled": true
+        },
+        {
+          "name": "Kemper Rig Manager",
+          "id": "manual.kemper-rig-manager",
+          "type": "manual_download",
+          "url": "https://www.kemper-amps.com/downloads",
+          "checkPath": "C:\\Program Files\\Kemper Amps\\Rig Manager\\Rig Manager.exe",
+          "enabled": true
+        },
+        {
+          "name": "Teenage Engineering USB Audio Driver",
+          "id": "manual.teenage-engineering-driver",
+          "type": "manual_download",
+          "url": "https://teenage.engineering/downloads",
+          "checkPath": "C:\\Program Files\\teenage engineering\\USB audio device driver\\x64\\teusbaudioCpl.exe",
+          "enabled": true
+        },
+        { "id": "FocusriteAudioEngineeringLtd.FocusriteControl", "name": "Focusrite Control (Scarlett 6i6 2nd Gen)", "enabled": true },
+        { "id": "GIMP.GIMP", "name": "GIMP Image Editor", "enabled": true },
         { "id": "Cockos.REAPER", "name": "REAPER DAW (x64)", "enabled": true },
         { "id": "VideoLAN.VLC", "name": "VLC Media Player", "enabled": true },
         { "id": "Audacity.Audacity", "name": "Audacity Audio Editor", "enabled": false },
         { "id": "OBSProject.OBSStudio", "name": "OBS Studio", "enabled": false },
         { "id": "Spotify.Spotify", "name": "Spotify", "enabled": false }
+      ]
+    },
+    "gaming_hardware": {
+      "name": "Hardware Control & Gaming",
+      "description": "Hardware control utilities and gaming platforms",
+      "packages": [
+        { "id": "seerge.g-helper", "name": "G-Helper (ASUS Control Tool)", "enabled": true },
+        { "id": "Valve.Steam", "name": "Steam", "enabled": true }
       ]
     },
     "browsers": {

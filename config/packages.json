@@ -65,6 +65,14 @@
           "checkPath": "C:\\Program Files\\teenage engineering\\USB audio device driver\\x64\\teusbaudioCpl.exe",
           "enabled": true
         },
+        {
+          "name": "Canon PIXMA MP190 Driver",
+          "id": "manual.canon-pixma-mp190",
+          "type": "manual_download",
+          "url": "https://www.canon.fr/support/consumer_products/products/fax__multifunctionals/inkjet/pixma_mp_series/pixma_mp190.html",
+          "checkPrinterDriver": "Canon MP190 series Printer",
+          "enabled": true
+        },
         { "id": "FocusriteAudioEngineeringLtd.FocusriteControl", "name": "Focusrite Control (Scarlett 6i6 2nd Gen)", "enabled": true },
         { "id": "GIMP.GIMP", "name": "GIMP Image Editor", "enabled": true },
         { "id": "Cockos.REAPER", "name": "REAPER DAW (x64)", "enabled": true },

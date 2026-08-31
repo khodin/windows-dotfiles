@@ -82,9 +82,16 @@ foreach ($catKey in $selectedKeys) {
 
         Write-Host "[*] Checking: $($pkg.name)..." -NoNewline
 
-        # Check for manual download packages (e.g. DaVinci Resolve)
+        # Check for manual download packages (e.g. DaVinci Resolve, hardware drivers)
         if ($pkg.type -eq "manual_download") {
+            $isInstalled = $false
             if ($pkg.checkPath -and (Test-Path $pkg.checkPath)) {
+                $isInstalled = $true
+            } elseif ($pkg.checkPrinterDriver -and (Get-PrinterDriver -Name $pkg.checkPrinterDriver -ErrorAction SilentlyContinue)) {
+                $isInstalled = $true
+            }
+
+            if ($isInstalled) {
                 Write-Host " [ALREADY INSTALLED]" -ForegroundColor Green
                 $skippedList += $pkg.name
             } else {

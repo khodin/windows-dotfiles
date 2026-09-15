@@ -91,7 +91,7 @@
           "enabled": true
         },
         { "id": "FocusriteAudioEngineeringLtd.FocusriteControl", "name": "Focusrite Control (Scarlett 6i6 2nd Gen)", "enabled": true },
-        { "id": "GIMP.GIMP", "name": "GIMP Image Editor", "enabled": true },
+        { "id": "GIMP.GIMP.3", "name": "GIMP 3 Image Editor", "enabled": true },
         { "id": "Cockos.REAPER", "name": "REAPER DAW (x64)", "enabled": true },
         { "id": "VideoLAN.VLC", "name": "VLC Media Player", "enabled": true },
         { "id": "Audacity.Audacity", "name": "Audacity Audio Editor", "enabled": false },

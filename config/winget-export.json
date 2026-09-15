@@ -1,16 +1,37 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-08-31T18:11:36.898-00:00",
+	"CreationDate" : "2026-09-15T22:51:44.665-00:00",
 	"Sources" : 
 	[
 		{
 			"Packages" : 
 			[
 				{
+					"PackageIdentifier" : "FocusriteAudioEngineeringLtd.FocusriteControl"
+				},
+				{
+					"PackageIdentifier" : "Git.Git"
+				},
+				{
 					"PackageIdentifier" : "Cockos.REAPER"
 				},
 				{
 					"PackageIdentifier" : "VideoLAN.VLC"
+				},
+				{
+					"PackageIdentifier" : "7zip.7zip"
+				},
+				{
+					"PackageIdentifier" : "Google.Chrome"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "Google.GoogleDrive"
+				},
+				{
+					"PackageIdentifier" : "OpenJS.NodeJS.LTS"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.PhysX"
@@ -19,31 +40,55 @@
 					"PackageIdentifier" : "DominikReichl.KeePass"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
+					"PackageIdentifier" : "Microsoft.Edge"
+				},
+				{
+					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2013.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.10"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2013.x86"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2013.x86"
+				},
+				{
+					"PackageIdentifier" : "Python.Launcher"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.10"
+				},
+				{
+					"PackageIdentifier" : "GIMP.GIMP"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
+					"PackageIdentifier" : "Starship.Starship"
+				},
+				{
+					"PackageIdentifier" : "seerge.g-helper"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+				},
+				{
+					"PackageIdentifier" : "Python.Python.3.12"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
@@ -52,10 +97,16 @@
 					"PackageIdentifier" : "Microsoft.AppInstaller"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.365Copilot"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.DotNet.Native.Runtime"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Outlook"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
@@ -70,7 +121,7 @@
 					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.1"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.6"
+					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.5"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.7"

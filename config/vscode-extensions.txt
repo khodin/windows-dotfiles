@@ -1,16 +1,18 @@
-# VS Code Recommended Extensions
-# Install with: cat vscode-extensions.txt | % { code --install-extension $_ }
-
-ms-vscode-remote.remote-wsl
-ms-vscode-remote.remote-ssh
-ms-vscode.powershell
+# VS Code Extensions Exported on 2026-09-15
+eamodio.gitlens
+esbenp.prettier-vscode
+ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
-esbenp.prettier-vscode
-eamodio.gitlens
-usernamehw.errorlens
+ms-python.vscode-python-envs
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode-remote.remote-wsl
+ms-vscode.powershell
+ms-vscode.remote-explorer
 pkief.material-icon-theme
-tamasfe.even-better-toml
 redhat.vscode-yaml
-tamasfe.even-better-toml
 streetsidesoftware.code-spell-checker
+tamasfe.even-better-toml
+usernamehw.errorlens
+vscodevim.vim

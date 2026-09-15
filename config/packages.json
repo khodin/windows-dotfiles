@@ -32,6 +32,7 @@
       "packages": [
         { "id": "DominikReichl.KeePass", "name": "KeePass Password Safe", "enabled": true },
         { "id": "Google.GoogleDrive", "name": "Google Drive", "enabled": true },
+        { "id": "9NKSQGP7F2NH", "name": "WhatsApp", "enabled": true },
         { "id": "Microsoft.OneDrive", "name": "Microsoft OneDrive", "enabled": true },
         { "id": "Obsidian.Obsidian", "name": "Obsidian Note Taking", "enabled": false },
         { "id": "Discord.Discord", "name": "Discord", "enabled": false }
@@ -71,6 +72,22 @@
           "type": "manual_download",
           "url": "https://www.canon.fr/support/consumer_products/products/fax__multifunctionals/inkjet/pixma_mp_series/pixma_mp190.html",
           "checkPrinterDriver": "Canon MP190 series Printer",
+          "enabled": true
+        },
+        {
+          "name": "Gateway (Neural Amp Modeler Noise Gate)",
+          "id": "manual.gateway-plugin",
+          "type": "manual_download",
+          "url": "https://www.neuralampmodeler.com/",
+          "checkPath": "C:\\Program Files\\Gateway\\unins000.exe",
+          "enabled": true
+        },
+        {
+          "name": "ParametricOD (Neural Amp Modeler Overdrive)",
+          "id": "manual.parametricod-plugin",
+          "type": "manual_download",
+          "url": "https://www.neuralampmodeler.com/",
+          "checkPath": "C:\\Program Files\\ParametricOD\\unins000.exe",
           "enabled": true
         },
         { "id": "FocusriteAudioEngineeringLtd.FocusriteControl", "name": "Focusrite Control (Scarlett 6i6 2nd Gen)", "enabled": true },

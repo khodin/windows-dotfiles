@@ -1,13 +1,13 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-09-15T22:51:44.665-00:00",
+	"CreationDate" : "2026-09-18T22:03:01.712-00:00",
 	"Sources" : 
 	[
 		{
 			"Packages" : 
 			[
 				{
-					"PackageIdentifier" : "FocusriteAudioEngineeringLtd.FocusriteControl"
+					"PackageIdentifier" : "FocusriteAudioEngineeringLtd.FocusriteControl2"
 				},
 				{
 					"PackageIdentifier" : "Git.Git"
@@ -70,7 +70,7 @@
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.10"
 				},
 				{
-					"PackageIdentifier" : "GIMP.GIMP"
+					"PackageIdentifier" : "GIMP.GIMP.3"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.OneDrive"

@@ -21,6 +21,13 @@
       "packages": [
         { "id": "Microsoft.VisualStudioCode", "name": "Visual Studio Code", "enabled": true },
         { "id": "Microsoft.WSL", "name": "Windows Subsystem for Linux (WSL2)", "enabled": true },
+        {
+          "name": "Ubuntu (WSL Distribution)",
+          "id": "Ubuntu",
+          "type": "wsl_distro",
+          "distro": "Ubuntu",
+          "enabled": true
+        },
         { "id": "Python.Python.3.12", "name": "Python 3.12", "enabled": true },
         { "id": "OpenJS.NodeJS.LTS", "name": "Node.js (LTS)", "enabled": true },
         { "id": "Docker.DockerDesktop", "name": "Docker Desktop", "enabled": false }

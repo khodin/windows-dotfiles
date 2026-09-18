@@ -34,10 +34,11 @@ windows-dotfiles/
 │       └── settings.json      # Windows Terminal styling & settings
 ├── scripts/
 │   ├── 00-prereqs.ps1         # Policy, Admin & Winget source checks
-│   ├── 01-install-apps.ps1    # Automated Winget package installer
+│   ├── 01-install-apps.ps1    # Automated Winget & WSL distro installer
 │   ├── 02-windows-tweaks.ps1  # Explorer, Dark mode & Developer tweaks
 │   ├── 03-apply-dotfiles.ps1  # Deploys dotfiles & backs up previous configs
 │   ├── 04-dev-tools.ps1       # PS modules, Git identity & VS Code extensions
+│   ├── 05-wsl-setup.ps1       # Configures WSL2 & installs Ubuntu distribution
 │   └── backup.ps1             # Live export of current machine state into repo
 └── agy_setup.ps1              # Antigravity CLI installer
 ```
@@ -55,12 +56,13 @@ Run `setup.ps1` from an elevated PowerShell window:
 ```
 
 You'll get an interactive menu to choose which steps to execute:
-- `[1]` Full Setup (Runs all stages)
+- `[1]` Full Setup (Runs all stages below)
 - `[2]` Install Applications (Winget packages)
 - `[3]` Apply Windows Settings & Tweaks
 - `[4]` Deploy Dotfiles (PowerShell, WSL, Terminal)
 - `[5]` Configure Developer Environment (Git, VS Code)
-- `[6]` Export Current Machine State (Backup)
+- `[6]` Install & Configure WSL (Ubuntu distribution)
+- `[7]` Export Current Machine State (Backup to repo)
 
 ### 2. Command Line Switches (Unattended)
 
@@ -73,6 +75,7 @@ You'll get an interactive menu to choose which steps to execute:
 .\setup.ps1 -Tweaks
 .\setup.ps1 -Dotfiles
 .\setup.ps1 -Dev
+.\setup.ps1 -WSL
 
 # Install specific package categories only:
 .\setup.ps1 -Apps -Categories core_tools,development
@@ -82,7 +85,7 @@ You'll get an interactive menu to choose which steps to execute:
 
 ## 📦 Managing Applications (`config/packages.json`)
 
-All applications are defined in [`config/packages.json`](file:///C:/Users/klebe/code/windows_setup/config/packages.json).
+All applications are defined in `config/packages.json`.
 
 You can easily enable or disable apps by toggling `"enabled": true` / `"enabled": false`, or add new Winget packages:
 
@@ -97,6 +100,25 @@ You can easily enable or disable apps by toggling `"enabled": true` / `"enabled"
 To search for the ID of a new package to add:
 ```powershell
 winget search "app name"
+```
+
+---
+
+## 🐧 WSL & Ubuntu Linux Setup (`scripts/05-wsl-setup.ps1`)
+
+The workstation system includes automated installation and configuration for **Windows Subsystem for Linux (WSL2)** with the **Ubuntu** distribution:
+
+1. **Automatic Runtime Setup**: Ensures `Microsoft.WSL` is installed and sets WSL default version to 2 (`wsl --set-default-version 2`).
+2. **Unattended Distribution Installation**: Detects existing distributions and automatically installs Ubuntu (`wsl --install -d Ubuntu --no-launch`) without interrupting automated scripts.
+3. **Default Distro Configuration**: Automatically sets `Ubuntu` as the default distribution (`wsl --set-default Ubuntu`).
+4. **Hardware Resource Tuning**: Deploys an optimized `.wslconfig` (in `dotfiles/.wslconfig`) tuning memory, CPU processor allocation, and experimental automatic memory reclamation.
+5. **VS Code & Terminal Integration**: Pre-configures the `ms-vscode-remote.remote-wsl` extension and Windows Terminal WSL profile.
+
+Run WSL configuration directly at any time:
+```powershell
+.\setup.ps1 -WSL
+# or directly:
+.\scripts\05-wsl-setup.ps1
 ```
 
 ---
@@ -130,7 +152,7 @@ git push
 2. In PowerShell, navigate to this directory and run:
 
 ```powershell
-cd C:\Users\klebe\code\windows_setup
+cd $env:USERPROFILE\code\windows-dotfiles
 
 # Initialize git (if not already done)
 git init

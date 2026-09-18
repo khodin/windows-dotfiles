@@ -101,6 +101,35 @@ foreach ($catKey in $selectedKeys) {
             continue
         }
 
+        # Check for WSL distribution packages
+        if ($pkg.type -eq "wsl_distro") {
+            $distroName = if ($pkg.distro) { $pkg.distro } else { $pkg.id }
+            $isDistroInstalled = $false
+            if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+                $rawDistros = wsl.exe --list --quiet 2>$null
+                $distros = @($rawDistros | ForEach-Object { $_ -replace "\x00", "" } | Where-Object { $_.Trim() } | ForEach-Object { $_.Trim() })
+                if ($distros -contains $distroName -or $distros -match "^$distroName$") {
+                    $isDistroInstalled = $true
+                }
+            }
+
+            if ($isDistroInstalled) {
+                Write-Host " [ALREADY INSTALLED]" -ForegroundColor Green
+                $skippedList += $pkg.name
+            } else {
+                Write-Host " [INSTALLING WSL DISTRO]" -ForegroundColor Yellow
+                $proc = Start-Process -FilePath "wsl.exe" -ArgumentList @("--install", "-d", $distroName, "--no-launch") -Wait -NoNewWindow -PassThru
+                if ($proc.ExitCode -eq 0) {
+                    Write-Host "[+] Successfully installed WSL distribution: $distroName" -ForegroundColor Green
+                    $installedList += $pkg.name
+                } else {
+                    Write-Host "[!] Failed to install WSL distribution: $distroName (Exit code: $($proc.ExitCode))" -ForegroundColor Red
+                    $failedList += $pkg.name
+                }
+            }
+            continue
+        }
+
         # Check if already installed via Winget
         $check = winget list --id "$($pkg.id)" --exact --accept-source-agreements 2>$null
         if ($LASTEXITCODE -eq 0 -and $check -match [regex]::Escape($pkg.id)) {

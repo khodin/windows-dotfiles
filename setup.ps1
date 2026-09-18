@@ -14,6 +14,8 @@
     Deploys dotfiles (PowerShell profile, .wslconfig, Terminal, etc.).
 .PARAMETER Dev
     Configures developer tools and VS Code extensions.
+.PARAMETER WSL
+    Configures WSL2 and automatically installs/verifies the Ubuntu distribution.
 .PARAMETER Backup
     Exports current machine state back to the repository.
 .PARAMETER Elevate
@@ -26,6 +28,7 @@ param(
     [switch]$Tweaks,
     [switch]$Dotfiles,
     [switch]$Dev,
+    [switch]$WSL,
     [switch]$Backup,
     [switch]$Elevate,
     [string[]]$Categories
@@ -45,6 +48,7 @@ if ($Elevate -and -not $isAdmin) {
     if ($Tweaks) { $argsList += "-Tweaks" }
     if ($Dotfiles) { $argsList += "-Dotfiles" }
     if ($Dev) { $argsList += "-Dev" }
+    if ($WSL) { $argsList += "-WSL" }
     Start-Process -FilePath "powershell.exe" -ArgumentList $argsList -Verb RunAs
     return
 }
@@ -77,6 +81,10 @@ function Invoke-Dev {
     & (Join-Path $scriptDir "scripts\04-dev-tools.ps1")
 }
 
+function Invoke-WSL {
+    & (Join-Path $scriptDir "scripts\05-wsl-setup.ps1")
+}
+
 function Invoke-Backup {
     & (Join-Path $scriptDir "scripts\backup.ps1")
 }
@@ -88,13 +96,14 @@ if ($All) {
     Invoke-Tweaks
     Invoke-Dotfiles
     Invoke-Dev
+    Invoke-WSL
     Write-Host "`n=======================================================" -ForegroundColor Green
     Write-Host "  FULL SETUP COMPLETE! Please restart your terminal.   " -ForegroundColor Green
     Write-Host "=======================================================`n" -ForegroundColor Green
     return
 }
 
-$hasCustomFlag = $Apps -or $Tweaks -or $Dotfiles -or $Dev -or $Backup
+$hasCustomFlag = $Apps -or $Tweaks -or $Dotfiles -or $Dev -or $WSL -or $Backup
 
 if ($hasCustomFlag) {
     Invoke-Prereqs
@@ -102,6 +111,7 @@ if ($hasCustomFlag) {
     if ($Tweaks) { Invoke-Tweaks }
     if ($Dotfiles) { Invoke-Dotfiles }
     if ($Dev) { Invoke-Dev }
+    if ($WSL) { Invoke-WSL }
     if ($Backup) { Invoke-Backup }
     return
 }
@@ -122,7 +132,8 @@ Write-Host " [2] Install Applications (Winget packages)" -ForegroundColor White
 Write-Host " [3] Apply Windows Settings & Tweaks" -ForegroundColor White
 Write-Host " [4] Deploy Dotfiles (PowerShell, WSL, Terminal)" -ForegroundColor White
 Write-Host " [5] Configure Developer Environment (Git, VS Code)" -ForegroundColor White
-Write-Host " [6] Export Current Machine State (Backup to repo)" -ForegroundColor White
+Write-Host " [6] Install & Configure WSL (Ubuntu Distribution)" -ForegroundColor White
+Write-Host " [7] Export Current Machine State (Backup to repo)" -ForegroundColor White
 Write-Host " [E] Restart in Elevated Administrator Mode" -ForegroundColor Yellow
 Write-Host " [0] Exit" -ForegroundColor DarkGray
 Write-Host "=======================================================" -ForegroundColor Cyan
@@ -136,6 +147,7 @@ switch ($choice) {
         Invoke-Tweaks
         Invoke-Dotfiles
         Invoke-Dev
+        Invoke-WSL
         Write-Host "`n[+] Full setup complete!" -ForegroundColor Green
     }
     "2" {
@@ -152,6 +164,9 @@ switch ($choice) {
         Invoke-Dev
     }
     "6" {
+        Invoke-WSL
+    }
+    "7" {
         Invoke-Backup
     }
     "E" {
